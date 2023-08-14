@@ -2,7 +2,7 @@
   session_start();
   $user = $_SESSION['user'];
 
-  $expense_file = fopen("expenses.ex", 'r');
+  $expense_file = fopen("../../personalFinance/expenses.ex", 'r');
   
 ?>
 <!doctype html>

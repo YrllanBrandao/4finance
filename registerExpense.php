@@ -11,7 +11,7 @@
     $data =  $owner . '#' . $title . '#' . $date . '#' . $type . '#' . $expense . '#' . $description . PHP_EOL;
 
 
-    $expense_file = fopen("expenses.ex", 'a');
+    $expense_file = fopen("../../personalFinance/expenses.ex", 'a');
 
 
     fwrite($expense_file, $data);

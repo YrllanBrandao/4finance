@@ -1,4 +1,4 @@
-<?php include_once './middleware/autoRedirect.php' ?>
+<?php require '../../personalFinance/autoRedirect.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
