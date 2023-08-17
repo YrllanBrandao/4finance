@@ -1,5 +1,6 @@
 <?php 
-  session_start();
+  require_once '../../personalFinance/pageProtector.php';
+    session_start();
   $user = $_SESSION['user'];
 
   $expense_file = fopen("../../personalFinance/expenses.ex", 'r');

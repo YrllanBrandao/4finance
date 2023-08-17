@@ -1,4 +1,4 @@
-
+<?php  require_once '../../personalFinance/pageProtector.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>

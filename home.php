@@ -1,3 +1,4 @@
+<?php  require_once '../../personalFinance/pageProtector.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,16 +11,6 @@
   <body>
     <div class="container-fluid p-0 m-0">
         <?php include './partials/navbar.php'; ?>
-        <?php 
-            $error = $_GET['error'];
-
-            if($error === 'login')
-            {
-                   echo '<div class="alert alert-danger" role="alert">
-                   E-mail e/ou Senha invalido!
-                 </div>';
-            }
-            ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
 
               

@@ -18,11 +18,34 @@
         <?php 
             $error = $_GET['error'];
 
-            if($error === 'login')
-            {
-                   echo '<div class="alert alert-danger" role="alert">
+            switch($error){
+              case '400':
+                ?>
+                <div class="alert alert-info" role="alert">
                    E-mail e/ou Senha invalido!
-                 </div>';
+                 </div>
+                 <?php
+                 break;
+                 case '403':
+                  ?>
+                  <div class="alert alert-warning" role="alert">
+                     acesso não permitido, faça login para continuar
+                   </div>
+                   <?php
+                   break;
+                   case '404':
+                    ?>
+                    <div class="alert alert-warning" role="alert">
+                       usuário não registrado no sistema
+                     </div>
+                     <?php
+                     break;
+              case '500':
+                ?>
+                <div class="alert alert-danger" role="alert">
+                   Ocorreu um erro no servidor, tente novamente em breve
+                 </div>
+                 <?php
             }
             ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
