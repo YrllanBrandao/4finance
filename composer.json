@@ -1,0 +1,17 @@
+{
+    "name": "yrllan/personal-finance",
+    "autoload": {
+        "psr-4": {
+            "Yrllan\\PersonalFinance\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yrllanbrandao",
+            "email": "yrllanbrandao@outlook.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

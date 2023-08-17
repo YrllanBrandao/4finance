@@ -26,7 +26,7 @@
             }
             ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
-
+            
             <form class="card form-login" method="POST" action="auth.php">
                 <div class="card-header">
                     <h3>Login</h3>
