@@ -17,54 +17,40 @@
         </div>
         <?php 
             $error = $_GET['error'];
-
+        
             switch($error){
               case '400':
                 ?>
                 <div class="alert alert-info" role="alert">
                    E-mail e/ou Senha invalido!
                  </div>
-                 <?php
-                 break;
-                 case '403':
-                  ?>
-                  <div class="alert alert-warning" role="alert">
-                     acesso não permitido, faça login para continuar
-                   </div>
-                   <?php
-                   break;
-                   case '404':
-                    ?>
-                    <div class="alert alert-warning" role="alert">
-                       usuário não registrado no sistema
-                     </div>
-                     <?php
-                     break;
+                <?php
               case '500':
-                ?>
+                    ?>
                 <div class="alert alert-danger" role="alert">
-                   Ocorreu um erro no servidor, tente novamente em breve
+                   Ocorreu um erro no servidor, tente novamente em breve 
                  </div>
                  <?php
             }
             ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
             
-            <form class="card form-login" method="POST" action="auth.php">
+            <form class="card form-login" method="POST" action="registerAccount.php">
                 <div class="card-header">
-                    <h3>Login</h3>
+                    <h3>Registro</h3>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <input type="text" name="email" id="" placeholder="E-mail" class="form-control" required title="insira seu e-mail de usuário" >
+                    <input type="text" name="username"  class="form-control" placeholder="nome de usuário"  pattern="^[a-zA-Z0-9]{6,40}$" title="nome de usuário(min: 6 | max: 40)">
+                    <input type="text" name="email" id="" placeholder="E-mail" class="form-control"  title="insira seu e-mail de usuário" >
 
-                    <input type="password" name="password" id="" class="form-control" placeholder="Senha" required title="Insira sua senha">
+                    <input type="password" name="password" id="" class="form-control" placeholder="Senha"  title="Insira sua senha">
 
                     <button type="submit" class="btn btn-primary">Entrar</button>
 
                     <hr>
 
                     <div class="d-flex flex-row gap-2">
-                    Não tem uma conta? <a href="createAccount.php" class="link-primary ">Criar</a>
+                    Já tem uma conta? <a href="index.php" class="link-primary ">Entrar</a>
                     </div>
                 </div>
 

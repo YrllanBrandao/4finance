@@ -30,7 +30,8 @@
             ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
 
-            <table class="table table-striped container-sm">
+            <div class="table-responsive">
+            <table class="table table-striped">
                 <thead class="bg-dark text-white">
                     <th>Título</th>
                     <th>Data</th>
@@ -62,6 +63,7 @@
                     ?>
                 </tbody>
             </table>
+            </div>
         </main>
 
         <?php include_once './partials/footer.php' ?>
