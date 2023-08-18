@@ -1,18 +1,24 @@
 <?php 
-   require_once  'vendor/autoload.php';
-   require_once 'database/connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+   require_once  './vendor/autoload.php';
+   
+   
+   use database\Connection;
+
+   
 
   try {
 
    $email = filter_var($_POST['email']);
    $password = $_POST['password'];
-   $connection = Connection::createConnection();
+   $connection  = Connection::createConnection();
    $query = '
          select * from users where email = :email 
    ';
    $statement = $connection->prepare($query);
-
    $statement->bindValue(':email', $email);
 
 

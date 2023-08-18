@@ -1,11 +1,13 @@
 <?php
-    require_once __DIR__ . '/../vendor/autoload.php';
-
+    namespace database;
+    
+    use Dotenv\Dotenv;
+    use PDO;
 
     class Connection{
-        public static function createConnection(){
+        public  static function createConnection(){
             try{
-                $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+                $dotenv = Dotenv::createImmutable(dirname(__DIR__));
                 $dotenv->load();
                 $dsn = $_ENV['DB_DSN'];
                 $user = $_ENV['DB_ADMIN'];
@@ -14,10 +16,8 @@
                 
                 return $connection;
                }
-               catch(PROException $error){
+               catch(PDOException $error){
                 echo $error->getMessage();
                }
         }
     }
-   
-?>

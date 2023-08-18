@@ -2,9 +2,11 @@
     "name": "yrllan/personal-finance",
     "autoload": {
         "psr-4": {
-            "Yrllan\\PersonalFinance\\": "src/"
+            "Yrllan\\PersonalFinance\\": "src/",
+            "database\\": "database/"
         }
-    },
+    }
+    ,
     "authors": [
         {
             "name": "yrllanbrandao",
