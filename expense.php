@@ -9,18 +9,8 @@
     <link rel="stylesheet" href="./public/css/style.css">
   </head>
   <body>
-    <div class="container-fluid p-0 m-0">
+    <div class="container-fluid p-0 m-0" >
         <?php include './partials/navbar.php'; ?>
-        <?php 
-            $error = $_GET['error'];
-
-            if($error === 'login')
-            {
-                   echo '<div class="alert alert-danger" role="alert">
-                   E-mail e/ou Senha invalido!
-                 </div>';
-            }
-            ?>
         <main class="d-flex flex-column justify-content-center align-items-center mt-4">
 
             <form action="registerExpense.php" method="post" class="form-control form-expense">
