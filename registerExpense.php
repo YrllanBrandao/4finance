@@ -1,22 +1,42 @@
 <?php
 
+    require_once './vendor/autoload.php';
     session_start();
-    $owner = $_SESSION['user'];
+    $owner = $_SESSION['userId'];
     $title = $_POST['title'];
     $date = $_POST['date'];
     $type = $_POST['type'];
-    $expense = $_POST['expense'];
+    $value = $_POST['value'];
     $description = $_POST['description'];
 
-    $data =  $owner . '#' . $title . '#' . $date . '#' . $type . '#' . $expense . '#' . $description . PHP_EOL;
+    use database\Connection;
 
 
-    $expense_file = fopen("../../personalFinance/expenses.ex", 'a');
+    try{
+        $connection = Connection::createConnection();
 
+        $query = '
+    INSERT INTO expenses (title, date, type, value, description, owner_id)
+    VALUES (:title, :date, :type, :value, :description, :owner_id)
+        ';
 
-    fwrite($expense_file, $data);
-    fflush($expense_file);
-    fclose($expense_file);
+        $statement = $connection->prepare($query);
 
-    header('location: expenses.php');
+        $statement->bindParam(':title', $title);
+        $statement->bindParam(':date', $date);
+        $statement->bindParam(':type', $type);
+        $statement->bindParam(':value', $value);
+        $statement->bindParam(':description', $description);
+        $statement->bindParam(':owner_id', $owner);
+
+        $statement->execute();
+
+        header("location: expenses.php");
+
+    }
+    catch(PDOException $error)
+    {   
+        $errorMessage = $error -> getMessage();
+        echo $errorMessage;
+    }    
 ?>

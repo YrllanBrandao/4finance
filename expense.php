@@ -31,7 +31,7 @@
                   <option>Outros</option>
                 </select>
                 <label for="expense" class="form-label">Gasto</label>
-                <input type="number" name="expense" class="form-control" id="expense" required>
+                <input type="number" name="value" class="form-control" id="expense" required>
 
                 <label for="description" class="form-label">Descrição do Gasto</label>
                 <textarea name="description" id="description" class="form-control" cols="30" rows="5" required ></textarea>
