@@ -1,10 +1,26 @@
 <?php 
-  require_once '../../personalFinance/pageProtector.php';
-    session_start();
-  $user = $_SESSION['user'];
 
-  $expense_file = fopen("../../personalFinance/expenses.ex", 'r');
+
+  require_once './vendor/autoload.php';
+  require_once '../../personalFinance/pageProtector.php';
   
+  $user = $_SESSION['userId'];
+
+
+  use database\Connection;
+
+  $connection = Connection::createConnection();
+
+  $query = 'SELECT * FROM expenses  WHERE  owner_id = :owner_id';
+
+
+  $statement = $connection -> prepare($query);
+  $statement -> bindParam(':owner_id', $user);
+  $statement -> execute();
+
+
+  $expenses = $statement -> fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,25 +48,17 @@
                 </thead>
                 <tbody>
                     <?php
-                    while(!feof($expense_file)){
-
-                     $expense = fgets($expense_file);
-
-                    $sliced_expense = explode("#", $expense);
-
-                         if($sliced_expense[0] === $user) {
-                            ?>
-                            <tr>
-                                <td><?= $sliced_expense[1]?></td>
-                                <td><?= $sliced_expense[2]?></td>
-                                <td><?= $sliced_expense[3]?></td>
-                                <td><?= $sliced_expense[4]?></td>
-                                <td><?= $sliced_expense[5]?></td>
-                            </tr>
-                            <?php
-                         }
-                                }
-
+                      foreach($expenses as $expense){
+                        ?>
+                          <tr>
+                            <td><?= $expense['title']?></td>
+                            <td><?= $expense['date']?></td>
+                            <td><?= $expense['type']?></td>
+                            <td><?= $expense['value']?></td>
+                            <td><?= $expense['description']?></td>
+                          </tr>
+                        <?php
+                      }
                     ?>
                 </tbody>
             </table>
