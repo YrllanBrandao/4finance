@@ -26,6 +26,7 @@
 
             $statement->execute();
 
+            
             $_SESSION['user'] = $username;
             $_SESSION['authenticated'] = true;
 

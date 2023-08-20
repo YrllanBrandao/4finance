@@ -50,7 +50,7 @@
                     <hr>
 
                     <div class="d-flex flex-row gap-2">
-                    Já tem uma conta? <a href="index.php" class="link-primary ">Entrar</a>
+                    Já tem uma conta? <a href="index.php" class="link-primary ">Registrar</a>
                     </div>
                 </div>
 
